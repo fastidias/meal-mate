@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="523ca113-9a10-47a8-bdb7-315566b7d2c0" name="Changes" comment="" />
+    <list default="true" id="523ca113-9a10-47a8-bdb7-315566b7d2c0" name="Changes" comment="init commit">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/controller/MealController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/model/Ingredient.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/model/Meal.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/service/MealService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/meal/mate/controller/MealControllerTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/meal/mate/service/MealServiceTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/sample_response.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,6 +52,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "1663",
+    "RequestMappingsPanelWidth1": "1662",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -42,10 +66,11 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.MealControllerTest">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="mate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -65,6 +90,67 @@
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
+    </configuration>
+    <configuration name="MateApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meal.mate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meal.mate" />
+      <option name="MAIN_CLASS_NAME" value="com.meal.mate.MateApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MealControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meal.mate.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meal.mate.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.meal.mate.controller.MealControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MealServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meal.mate.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meal.mate.service" />
+      <option name="MAIN_CLASS_NAME" value="com.meal.mate.service.MealServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MealServiceTest.givenWhenCallingGetMealsThenStaticlistIsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meal.mate.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meal.mate.service" />
+      <option name="MAIN_CLASS_NAME" value="com.meal.mate.service.MealServiceTest" />
+      <option name="METHOD_NAME" value="givenWhenCallingGetMealsThenStaticlistIsReturned" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="mate" />
@@ -146,6 +232,14 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MealControllerTest" />
+        <item itemvalue="JUnit.MealServiceTest" />
+        <item itemvalue="JUnit.MealServiceTest.givenWhenCallingGetMealsThenStaticlistIsReturned" />
+        <item itemvalue="JUnit.MateApplicationTests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -158,11 +252,27 @@
       <workItem from="1681412101831" duration="467000" />
       <workItem from="1681412615367" duration="687000" />
       <workItem from="1681414208039" duration="28000" />
-      <workItem from="1681414269857" duration="343000" />
+      <workItem from="1681414269857" duration="5293000" />
     </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <created>1681414655926</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681414655926</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

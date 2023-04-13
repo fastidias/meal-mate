@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Knoblauchspaghetti mit frischen Tomaten",
+    "portion_size": 4,
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "quantity": "500",
+        "unit": "g"
+      }
+    ],
+    "directions": [
+      "Die Spaghetti in Salzwasser al dente kochen.",
+      "In der Zwischenzeit die Tomaten in etwa 1 - 2 cm große Würfel schneiden und den Knoblauch fein hacken.",
+      "Die Spaghetti abgießen und abschrecken. In einer Pfanne das Olivenöl erhitzen und den Knoblauch leicht anbraten, bis er etwas Farbe bekommt. Dann die Spaghetti in die Pfanne geben und unter Wenden etwa 2 Minuten braten.",
+      "Kurz vor dem Servieren die frischen Tomatenwürfel und das Basilikum dazugeben und alles mit Salz abschmecken."
+    ],
+    "image": "/images/123",
+    "labels": [
+      "vegan"
+    ]
+  },
+  {
+    "name": "Tomatensuppe",
+    "portion_size": 4,
+    "ingredients": [
+      {
+        "name": "Tomaten",
+        "quantity": "700",
+        "unit": "g"
+      },
+      {
+        "name": "Wasser",
+        "quantity": "500",
+        "unit": "g"
+      }
+    ],
+    "directions": [
+      "Knoblauch und Zwiebel in den Mixtopf geben und 3 Sek./Stufe 5 zerkleinern.",
+      "Butter zugeben und 2 1/2 Min./Varoma/Stufe 2 dünsten.",
+      "Tomaten, Tomatenmark, Kräutersalz, Zucker und Pizzagewürz zugeben und\n5 Sek./Stufe 5 zerkleinern.",
+      "Wasser und Brühwürfel zugeben und 10 Min./100°/Stufe 2 garen.",
+      "Crème fraîche, Basilikum und Petersilie zugeben und 30 Sek./Stufe 8 vermischen."
+    ],
+    "image": "/images/456",
+    "labels": [
+      "vegetarisch"
+    ]
+  }
+]
