@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="523ca113-9a10-47a8-bdb7-315566b7d2c0" name="Changes" comment="init commit">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/controller/MealController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/model/Ingredient.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/model/Meal.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/service/MealService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/meal/mate/controller/MealControllerTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/com/meal/mate/service/MealServiceTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/sample_response.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-    </list>
+    <list default="true" id="523ca113-9a10-47a8-bdb7-315566b7d2c0" name="Changes" comment="init commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -252,7 +239,7 @@
       <workItem from="1681412101831" duration="467000" />
       <workItem from="1681412615367" duration="687000" />
       <workItem from="1681414208039" duration="28000" />
-      <workItem from="1681414269857" duration="5293000" />
+      <workItem from="1681414269857" duration="6183000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1681414655926</created>
@@ -261,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681414655926</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="init commit">
+      <created>1681419734472</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681419734472</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
