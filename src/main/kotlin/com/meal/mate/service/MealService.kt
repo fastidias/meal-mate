@@ -2,15 +2,12 @@ package com.meal.mate.service
 
 import com.meal.mate.model.Ingredient
 import com.meal.mate.model.Meal
+import com.meal.mate.repo.MealRepository
 import org.springframework.stereotype.Service
 
 @Service
-class MealService {
+class MealService(val mealRepository: MealRepository) {
     fun getMeals(): List<Meal> {
-        val meal = Meal(
-            "Knoblauchspaghetti mit frischen Tomaten",
-            4,
-            listOf(Ingredient("Spaghetti","500","g")))
-        return listOf(meal)
+        return mealRepository.findAll()
     }
 }
