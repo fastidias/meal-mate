@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.put
 import java.util.*
@@ -82,5 +83,29 @@ class MealControllerTest(@Autowired val mockMvc: MockMvc) {
                     contentType(MediaType.APPLICATION_JSON)
                 }
             }
+    }
+
+    @Test
+    fun givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent(){
+        //given
+        val meal = Meal(
+            UUID.fromString("2f81508a-69e9-445f-ac82-40418c7bc42f"),
+            "Knoblauchspaghetti mit frischen Tomaten",
+            4,
+            listOf(Ingredient("Spaghetti","500","g")))
+
+
+        val mock = mockMvc.put("/meals") {
+            contentType = MediaType.APPLICATION_JSON
+            content = mapper.writeValueAsString(meal)
+        }
+            .andDo { print() }
+            .andExpect {
+                status { isCreated() }
+                header { string("Location", "/meals/2f81508a-69e9-445f-ac82-40418c7bc42f") }
+            }.andReturn()
+
+        //when/then
+        mockMvc.delete("/meals/2f81508a-69e9-445f-ac82-40418c7bc42f").andDo { print() }.andExpect { status { isNoContent() } }
     }
 }

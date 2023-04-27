@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="523ca113-9a10-47a8-bdb7-315566b7d2c0" name="Changes" comment="init commit" />
+    <list default="true" id="523ca113-9a10-47a8-bdb7-315566b7d2c0" name="Changes" comment="init commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/controller/MealController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/controller/MealController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/service/MealService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/service/MealService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/meal/mate/controller/MealControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/meal/mate/controller/MealControllerTest.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +23,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/rest-get-create-meal" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MacroExpansionManager">
@@ -37,27 +47,28 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "1663",
-    "RequestMappingsPanelWidth1": "1662",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "develop",
-    "last_opened_file_path": "/lhome/alexaw1/workspace/private/meal-mate",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;1663&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;1662&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Coding/RP/Privat/teamplanner&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;7c13aea47d6e6ddefd62d2c00653b2a4&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.MealControllerTest">
+}</component>
+  <component name="RunManager" selected="JUnit.MealControllerTest.givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="mate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -77,80 +88,6 @@
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
-    </configuration>
-    <configuration name="MateApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.meal.mate.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.meal.mate" />
-      <option name="MAIN_CLASS_NAME" value="com.meal.mate.MateApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MealControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.meal.mate.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.meal.mate.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.meal.mate.controller.MealControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MealServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.meal.mate.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.meal.mate.service" />
-      <option name="MAIN_CLASS_NAME" value="com.meal.mate.service.MealServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MealServiceTest.givenWhenCallingGetMealsThenStaticlistIsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.meal.mate.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.meal.mate.service" />
-      <option name="MAIN_CLASS_NAME" value="com.meal.mate.service.MealServiceTest" />
-      <option name="METHOD_NAME" value="givenWhenCallingGetMealsThenStaticlistIsReturned" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="mate" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="mate" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
       <module name="mate" />
@@ -200,13 +137,6 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="MateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="mate" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.meal.mate.MateApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
       <module name="mate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -219,11 +149,128 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
+      <option name="appName" />
+      <option name="appServicePlanName" />
+      <option name="appServicePlanResourceGroup" />
+      <option name="appSettingsKey" value="84ce0044-5be7-4c62-a11f-c07b57255527" />
+      <option name="artifact" />
+      <option name="autoPort" value="true" />
+      <option name="debugOptions" />
+      <option name="deployment" />
+      <option name="deploymentStagingDirectoryPath" />
+      <option name="funcPath" />
+      <option name="funcPort" value="0" />
+      <option name="functionHostArguments" />
+      <option name="hostJsonPath" />
+      <option name="insightsName" />
+      <option name="instrumentationKey" />
+      <option name="javaVersion" />
+      <option name="localSettingsJsonPath" />
+      <option name="moduleName" />
+      <option name="os" />
+      <option name="pricingTier" />
+      <option name="providerMap">
+        <map />
+      </option>
+      <option name="region" />
+      <option name="resourceGroup" />
+      <option name="stagingFolder" />
+      <option name="subscription" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MateApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meal.mate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meal.mate" />
+      <option name="MAIN_CLASS_NAME" value="com.meal.mate.MateApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MealControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meal.mate.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meal.mate.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.meal.mate.controller.MealControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MealControllerTest.givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meal.mate.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meal.mate.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.meal.mate.controller.MealControllerTest" />
+      <option name="METHOD_NAME" value="givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MealServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meal.mate.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meal.mate.service" />
+      <option name="MAIN_CLASS_NAME" value="com.meal.mate.service.MealServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MealServiceTest.givenWhenCallingGetMealsThenStaticlistIsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meal.mate.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meal.mate.service" />
+      <option name="MAIN_CLASS_NAME" value="com.meal.mate.service.MealServiceTest" />
+      <option name="METHOD_NAME" value="givenWhenCallingGetMealsThenStaticlistIsReturned" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="mate" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.meal.mate.MateApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MealControllerTest" />
-        <item itemvalue="JUnit.MealServiceTest" />
+        <item itemvalue="JUnit.MealControllerTest.givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent" />
         <item itemvalue="JUnit.MealServiceTest.givenWhenCallingGetMealsThenStaticlistIsReturned" />
+        <item itemvalue="JUnit.MealServiceTest" />
+        <item itemvalue="JUnit.MealControllerTest" />
         <item itemvalue="JUnit.MateApplicationTests" />
       </list>
     </recent_temporary>
@@ -240,6 +287,14 @@
       <workItem from="1681412615367" duration="687000" />
       <workItem from="1681414208039" duration="28000" />
       <workItem from="1681414269857" duration="6183000" />
+      <workItem from="1682110394384" duration="106000" />
+      <workItem from="1682360448454" duration="894000" />
+      <workItem from="1682361591072" duration="15000" />
+      <workItem from="1682362038312" duration="11000" />
+      <workItem from="1682362113633" duration="113000" />
+      <workItem from="1682596997434" duration="90000" />
+      <workItem from="1682620403179" duration="6856000" />
+      <workItem from="1682627644504" duration="660000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1681414655926</created>
@@ -260,6 +315,34 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />

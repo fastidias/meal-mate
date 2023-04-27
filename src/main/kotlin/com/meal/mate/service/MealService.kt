@@ -2,7 +2,9 @@ package com.meal.mate.service
 
 import com.meal.mate.model.Ingredient
 import com.meal.mate.model.Meal
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
+import org.springframework.web.bind.annotation.ResponseStatus
 import java.util.*
 
 @Service
@@ -22,5 +24,9 @@ class MealService {
 
     fun createMeal(meal: Meal): Meal? {
         return meal
+    }
+
+    fun deleteMeal(id: UUID){
+        // returns nothing, delete meal by id
     }
 }
