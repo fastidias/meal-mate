@@ -23,4 +23,8 @@ class MealService {
     fun createMeal(meal: Meal): Meal? {
         return meal
     }
+
+    fun updateMeal(meal: Meal): Meal? {
+        return meal
+    }
 }
