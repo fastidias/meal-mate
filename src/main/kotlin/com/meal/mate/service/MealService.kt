@@ -20,7 +20,7 @@ class MealService {
         return getMeals().find { it.id == id }
     }
 
-    fun createMeal(meal: Meal): Meal {
+    fun createMeal(meal: Meal): Meal? {
         return meal
     }
 }

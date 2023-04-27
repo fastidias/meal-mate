@@ -1,5 +1,6 @@
 package com.meal.mate.controller
 
+import com.meal.mate.BaseValues
 import com.meal.mate.model.Meal
 import com.meal.mate.service.MealService
 import org.springframework.http.ResponseEntity
@@ -13,7 +14,7 @@ import java.net.URI
 import java.util.*
 
 @RestController
-@RequestMapping("/meals")
+@RequestMapping(BaseValues.PATH_MEALS)
 class MealController(val mealService: MealService) {
     @GetMapping
     fun getMeals(): List<Meal> {
@@ -22,14 +23,13 @@ class MealController(val mealService: MealService) {
 
     @PutMapping
     fun createMeal(@RequestBody meal: Meal): ResponseEntity<Meal> {
-        val createdMeal = mealService.createMeal(meal)
-        val uri = URI("/meals/${createdMeal.id}")
-        return ResponseEntity.created(uri).build()
+        return mealService.createMeal(meal)?.let { createdMeal ->
+            ResponseEntity.created(URI("${BaseValues.PATH_MEALS}/${createdMeal.id}")).build()
+        } ?: ResponseEntity.internalServerError().build()
     }
 
     @GetMapping("/{mealId}")
     fun getMeal(@PathVariable mealId: UUID): ResponseEntity<Meal> {
-        val meal = mealService.getMeal(mealId)
-        return if (meal != null) ResponseEntity.ok(meal) else ResponseEntity.notFound().build()
+        return mealService.getMeal(mealId)?.let { meal -> ResponseEntity.ok(meal) } ?: ResponseEntity.notFound().build()
     }
 }
