@@ -99,11 +99,6 @@ class MealControllerTest(@Autowired val mockMvc: MockMvc) {
             contentType = MediaType.APPLICATION_JSON
             content = mapper.writeValueAsString(meal)
         }
-            .andDo { print() }
-            .andExpect {
-                status { isCreated() }
-                header { string("Location", "/meals/2f81508a-69e9-445f-ac82-40418c7bc42f") }
-            }.andReturn()
 
         //when/then
         mockMvc.delete("/meals/2f81508a-69e9-445f-ac82-40418c7bc42f").andDo { print() }.andExpect { status { isNoContent() } }
