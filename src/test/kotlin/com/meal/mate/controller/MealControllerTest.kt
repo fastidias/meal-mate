@@ -3,6 +3,8 @@ package com.meal.mate.controller
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.meal.mate.model.Ingredient
 import com.meal.mate.model.Meal
+import com.meal.mate.repo.MealItem
+import com.meal.mate.repo.MealRepository
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -62,7 +64,8 @@ class MealControllerTest(@Autowired val mockMvc: MockMvc) {
             UUID.fromString("2f81508a-69e9-445f-ac82-40418c7bc42f"),
             "Knoblauchspaghetti mit frischen Tomaten",
             4,
-            listOf(Ingredient("Spaghetti","500","g")))
+            listOf(Ingredient("Spaghetti","500","g"))
+        )
 
         val mock = mockMvc.put("/meals") {
             contentType = MediaType.APPLICATION_JSON
