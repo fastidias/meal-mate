@@ -1,6 +1,7 @@
 package com.meal.mate.service
 
 import com.meal.mate.model.Meal
+import com.meal.mate.repo.MealItem
 import com.meal.mate.repo.MealRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -18,6 +19,7 @@ class MealService(@Autowired val mealRepository: MealRepository) {
     }
 
     fun createMeal(meal: Meal): Meal? {
+        mealRepository.save(MealItem(meal.id, meal.name))
         return meal
     }
 }
