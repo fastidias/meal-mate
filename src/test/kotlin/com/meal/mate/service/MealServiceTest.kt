@@ -3,22 +3,17 @@ package com.meal.mate.service
 import com.meal.mate.repo.MealItem
 import com.meal.mate.repo.MealRepository
 import com.ninjasquad.springmockk.MockkBean
-import com.ninjasquad.springmockk.SpykBean
 import io.mockk.every
-import io.mockk.impl.annotations.MockK
-import io.mockk.impl.annotations.SpyK
-import io.mockk.junit5.MockKExtension
 import io.mockk.verify
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.junit.jupiter.SpringExtension
+import java.util.*
 
-private const val mealName = "testName1"
+private const val MEAL_NAME = "testName1"
 
-private const val mealId = "testId1"
+private val mealId = UUID.fromString("4d259eda-8318-463c-9d5f-ed1cd74b2e24")
 
 @SpringBootTest
 class MealServiceTest {
@@ -30,7 +25,7 @@ class MealServiceTest {
     @Test
     fun givenStaticList_whenCallingGetMeals_thenStaticListIsReturned() {
         // given
-        every { mealRepository.findAll() } returns listOf(MealItem(mealId, mealName))
+        every { mealRepository.findAll() } returns listOf(MealItem(mealId, MEAL_NAME))
 
         // when
         val meals = mealService.getMeals()
@@ -39,6 +34,6 @@ class MealServiceTest {
         verify(exactly = 1) { mealRepository.findAll() }
         assertFalse(meals.isEmpty())
         assertEquals(1, meals.size)
-        assertEquals(mealName, meals[0].name)
+        assertEquals(MEAL_NAME, meals[0].name)
     }
 }
