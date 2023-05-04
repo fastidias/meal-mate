@@ -1,19 +1,17 @@
 package com.meal.mate.service
 
-import com.meal.mate.model.Ingredient
 import com.meal.mate.model.Meal
+import com.meal.mate.repo.MealItem
+import com.meal.mate.repo.MealRepository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
-class MealService {
+class MealService(@Autowired val mealRepository: MealRepository) {
     fun getMeals(): List<Meal> {
-        val meal = Meal(
-            UUID.fromString("2f81508a-69e9-445f-ac82-40418c7bc42f"),
-            "Knoblauchspaghetti mit frischen Tomaten",
-            4,
-            listOf(Ingredient("Spaghetti","500","g")))
-        return listOf(meal)
+        val mealItems = mealRepository.findAll()
+        return mealItems.map { mealItem -> Meal(mealItem.id, mealItem.name, 1, ArrayList()) }
     }
 
     fun getMeal(id: UUID): Meal? {
@@ -21,6 +19,7 @@ class MealService {
     }
 
     fun createMeal(meal: Meal): Meal? {
+        mealRepository.save(MealItem(meal.id, meal.name))
         return meal
     }
 
