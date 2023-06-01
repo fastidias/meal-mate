@@ -1,10 +1,9 @@
 package com.meal.mate.repo
 
 import org.springframework.data.mongodb.repository.MongoRepository
+import java.util.*
 
 interface MealRepository: MongoRepository<MealItem, String> {
-    /*
-    @Query("{name:'?0'}")
-    fun findByName(name: String): MealItem
-    */
+
+    fun findById(id: UUID): MealItem?
 }

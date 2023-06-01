@@ -23,6 +23,14 @@ class MealService(@Autowired val mealRepository: MealRepository) {
         return meal
     }
 
+    fun updateMeal(meal: Meal): Meal? {
+        mealRepository.findById(meal.id)?.let {
+            it.name = meal.name
+            mealRepository.save(it)
+        }
+        return meal
+    }
+
     fun deleteMeal(id: UUID){
         val matchingMeals = mealRepository.findAll().filter { mealItem ->  mealItem.id == id}
         mealRepository.delete(matchingMeals[0])
