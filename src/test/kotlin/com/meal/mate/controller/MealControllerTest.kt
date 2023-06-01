@@ -3,14 +3,13 @@ package com.meal.mate.controller
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.meal.mate.model.Ingredient
 import com.meal.mate.model.Meal
-import com.meal.mate.repo.MealItem
-import com.meal.mate.repo.MealRepository
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
 import org.springframework.test.web.servlet.put
@@ -125,5 +124,21 @@ class MealControllerTest(@Autowired val mockMvc: MockMvc) {
             .andExpect {
                 status { isUnprocessableEntity() }
             }
+    }
+
+    @Test
+    fun givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent(){
+        val meal = Meal(
+            UUID.fromString("2f81508a-69e9-445f-ac82-40418c7bc42f"),
+            "Knoblauchspaghetti mit frischen Tomaten",
+            4,
+            listOf(Ingredient("Spaghetti","500","g")))
+
+        mockMvc.put("/meals") {
+            contentType = MediaType.APPLICATION_JSON
+            content = mapper.writeValueAsString(meal)
+        }
+
+        mockMvc.delete("/meals/2f81508a-69e9-445f-ac82-40418c7bc42f").andDo { print() }.andExpect { status { isNoContent() } }
     }
 }

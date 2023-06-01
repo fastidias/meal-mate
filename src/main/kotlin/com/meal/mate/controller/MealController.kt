@@ -3,7 +3,9 @@ package com.meal.mate.controller
 import com.meal.mate.BaseValues
 import com.meal.mate.model.Meal
 import com.meal.mate.service.MealService
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -41,5 +43,10 @@ class MealController(val mealService: MealService) {
 
         mealService.updateMeal(meal)
         return ResponseEntity.noContent().build()
+    }
+
+    @DeleteMapping("/{mealId}")
+    fun deleteMeal(@PathVariable mealId: UUID): ResponseEntity<Unit> {
+        return ResponseEntity(mealService.deleteMeal(mealId), HttpStatus.NO_CONTENT)
     }
 }

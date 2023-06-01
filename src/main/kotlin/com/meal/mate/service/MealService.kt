@@ -30,4 +30,9 @@ class MealService(@Autowired val mealRepository: MealRepository) {
         }
         return meal
     }
+
+    fun deleteMeal(id: UUID){
+        val matchingMeals = mealRepository.findAll().filter { mealItem ->  mealItem.id == id}
+        mealRepository.delete(matchingMeals[0])
+    }
 }
