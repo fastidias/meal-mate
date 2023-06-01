@@ -1,5 +1,6 @@
 package com.meal.mate.service
 
+import com.meal.mate.model.Meal
 import com.meal.mate.repo.MealItem
 import com.meal.mate.repo.MealRepository
 import com.ninjasquad.springmockk.MockkBean
@@ -35,5 +36,39 @@ class MealServiceTest {
         assertFalse(meals.isEmpty())
         assertEquals(1, meals.size)
         assertEquals(MEAL_NAME, meals[0].name)
+    }
+
+    @Test
+    fun givenMeal_whenUpdateMealItemExists_thenUpdateMealItem(){
+        // given
+        val mealItem = MealItem(mealId, MEAL_NAME)
+        every { mealRepository.findById(mealId) } returns mealItem
+        every { mealRepository.save(any()) } returns mealItem
+
+        val newMealName = MEAL_NAME + "a"
+        val meal = Meal(mealId , newMealName, 0, emptyList())
+
+        // when
+        val updatedMeal = mealService.updateMeal(meal)
+
+        // then
+        assertEquals(updatedMeal, meal)
+        assertEquals(mealItem.name, newMealName)
+        verify(exactly = 1) {mealRepository.save(mealItem)}
+    }
+
+    @Test
+    fun givenMeal_whenUpdateMealItemNotExists_thenDontUpdateAnything(){
+        // given
+        every { mealRepository.findById(mealId) } returns null
+
+        val meal = Meal(mealId , MEAL_NAME + "a", 0, emptyList())
+
+        // when
+        val notUpdatedMeal = mealService.updateMeal(meal)
+
+        // then
+        assertEquals(notUpdatedMeal, meal)
+        verify(exactly = 0) {mealRepository.save(any())}
     }
 }

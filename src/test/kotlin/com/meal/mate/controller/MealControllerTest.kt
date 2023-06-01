@@ -12,18 +12,22 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
+import org.springframework.test.web.servlet.post
 import org.springframework.test.web.servlet.put
 import java.util.*
 
 @SpringBootTest
 @AutoConfigureMockMvc
 class MealControllerTest(@Autowired val mockMvc: MockMvc) {
+    companion object {
+        const val PATH_MEALS = "/meals"
+    }
 
     val mapper = jacksonObjectMapper()
 
     @Test
     fun givenStaticList_whenCallRestGet_thenReturnStaticJson() {
-        mockMvc.get("/meals")
+        mockMvc.get(PATH_MEALS)
             .andDo { print() }
             .andExpect {
                 status { isOk() }
@@ -37,7 +41,7 @@ class MealControllerTest(@Autowired val mockMvc: MockMvc) {
     fun givenStaticElementOfStaticList_whenCallRestGetMeal_thenReturnStaticJson() {
         val uuid = "2f81508a-69e9-445f-ac82-40418c7bc42f"
 
-        mockMvc.get("/meals/$uuid")
+        mockMvc.get("$PATH_MEALS/$uuid")
             .andDo { print() }
             .andExpect {
                 status { isOk() }
@@ -51,7 +55,7 @@ class MealControllerTest(@Autowired val mockMvc: MockMvc) {
     fun givenStaticElementOfStaticList_whenCallRestGetMeal_thenReturnNotFound() {
         val uuid = "11111111-1111-1111-1111-111111111111"
 
-        mockMvc.get("/meals/$uuid")
+        mockMvc.get("$PATH_MEALS/$uuid")
             .andDo { print() }
             .andExpect {
                 status { isNotFound() }
@@ -67,7 +71,7 @@ class MealControllerTest(@Autowired val mockMvc: MockMvc) {
             listOf(Ingredient("Spaghetti","500","g"))
         )
 
-        val mock = mockMvc.put("/meals") {
+        val mock = mockMvc.post(PATH_MEALS) {
             contentType = MediaType.APPLICATION_JSON
             content = mapper.writeValueAsString(meal)
         }
@@ -84,6 +88,42 @@ class MealControllerTest(@Autowired val mockMvc: MockMvc) {
                 content {
                     contentType(MediaType.APPLICATION_JSON)
                 }
+            }
+    }
+
+    @Test
+    fun givenMealObject_whenCallRestUpdateMeal_thenUpdateAndReturnNoContent() {
+        val mealToUpdate = Meal(
+            UUID.fromString("2f81508a-69e9-445f-ac82-40418c7bc42f"),
+            "Knoblauchspaghetti mit alten Tomaten",
+            4,
+            listOf(Ingredient("Spaghetti","500","g")))
+
+        mockMvc.put("$PATH_MEALS/${mealToUpdate.id}") {
+            contentType = MediaType.APPLICATION_JSON
+            content = mapper.writeValueAsString(mealToUpdate)
+        }
+            .andDo { print() }
+            .andExpect {
+                status { isNoContent() }
+            }
+    }
+
+    @Test
+    fun givenMealObjectOnWrongPathMealId_whenCallRestUpdateMeal_thenReturnUnprocessableEntity() {
+        val mealToUpdate = Meal(
+            UUID.fromString("2f81508a-69e9-445f-ac82-40418c7bc42f"),
+            "Knoblauchspaghetti mit alten Tomaten",
+            4,
+            listOf(Ingredient("Spaghetti","500","g")))
+
+        mockMvc.put("$PATH_MEALS/11111111-1111-1111-1111-111111111111") {
+            contentType = MediaType.APPLICATION_JSON
+            content = mapper.writeValueAsString(mealToUpdate)
+        }
+            .andDo { print() }
+            .andExpect {
+                status { isUnprocessableEntity() }
             }
     }
 }
