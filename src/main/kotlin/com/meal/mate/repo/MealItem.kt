@@ -5,5 +5,5 @@ import org.springframework.data.mongodb.core.mapping.Document
 import java.util.UUID
 
 @Document("mealitems")
-class MealItem(@Id val id: UUID, val name: String) {
+class MealItem(@Id val id: UUID, var name: String) {
 }

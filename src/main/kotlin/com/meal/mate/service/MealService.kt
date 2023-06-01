@@ -24,6 +24,10 @@ class MealService(@Autowired val mealRepository: MealRepository) {
     }
 
     fun updateMeal(meal: Meal): Meal? {
+        mealRepository.findById(meal.id)?.let {
+            it.name = meal.name
+            mealRepository.save(it)
+        }
         return meal
     }
 }
