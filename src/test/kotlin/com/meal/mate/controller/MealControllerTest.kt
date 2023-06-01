@@ -3,8 +3,6 @@ package com.meal.mate.controller
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.meal.mate.model.Ingredient
 import com.meal.mate.model.Meal
-import com.meal.mate.repo.MealItem
-import com.meal.mate.repo.MealRepository
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -90,20 +88,22 @@ class MealControllerTest(@Autowired val mockMvc: MockMvc) {
 
     @Test
     fun givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent(){
-        //given
         val meal = Meal(
             UUID.fromString("2f81508a-69e9-445f-ac82-40418c7bc42f"),
             "Knoblauchspaghetti mit frischen Tomaten",
             4,
             listOf(Ingredient("Spaghetti","500","g")))
 
-
         val mock = mockMvc.put("/meals") {
             contentType = MediaType.APPLICATION_JSON
             content = mapper.writeValueAsString(meal)
         }
+            .andDo { print() }
+            .andExpect {
+                status { isCreated() }
+                header { string("Location", "/meals/2f81508a-69e9-445f-ac82-40418c7bc42f") }
+            }.andReturn()
 
-        //when/then
-        mockMvc.delete("/meals/2f81508a-69e9-445f-ac82-40418c7bc42f").andDo { print() }.andExpect { status { isNoContent() } }
+        mockMvc.delete(mock.response.getHeader("Location").toString()).andDo { print() }.andExpect { status { isNoContent() } }
     }
 }

@@ -5,7 +5,6 @@ import com.meal.mate.repo.MealItem
 import com.meal.mate.repo.MealRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.ResponseStatus
 import java.util.*
 
 @Service
@@ -25,6 +24,7 @@ class MealService(@Autowired val mealRepository: MealRepository) {
     }
 
     fun deleteMeal(id: UUID){
-        // returns nothing, delete meal by id
+        val matchingMeals = mealRepository.findAll().filter { mealItem ->  mealItem.id == id}
+        mealRepository.delete(matchingMeals[0])
     }
 }

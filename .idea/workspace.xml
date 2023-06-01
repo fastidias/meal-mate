@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="523ca113-9a10-47a8-bdb7-315566b7d2c0" name="Changes" comment="">
+    <list default="true" id="523ca113-9a10-47a8-bdb7-315566b7d2c0" name="Changes" comment="implement delete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/service/MealService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/meal/mate/service/MealService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/meal/mate/controller/MealControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/meal/mate/controller/MealControllerTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +67,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.MealControllerTest.givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent">
+  <component name="RunManager" selected="JUnit.All in mate (1)">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="mate" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -179,32 +180,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MateApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in mate (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.meal.mate.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.meal.mate" />
-      <option name="MAIN_CLASS_NAME" value="com.meal.mate.MateApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MealControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in mate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.meal.mate.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.meal.mate.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.meal.mate.controller.MealControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -256,6 +243,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run all tests" type="JUnit" factoryName="JUnit">
+      <module name="mate" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="mate" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.meal.mate.MateApplication" />
@@ -263,13 +260,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.Run all tests" />
+      <item itemvalue="JUnit.All in mate (1)" />
+      <item itemvalue="JUnit.All in mate" />
+      <item itemvalue="JUnit.MealControllerTest.givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent" />
+      <item itemvalue="JUnit.MealServiceTest" />
+      <item itemvalue="JUnit.MealServiceTest.givenWhenCallingGetMealsThenStaticlistIsReturned" />
+      <item itemvalue="Spring Boot.MateApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in mate (1)" />
         <item itemvalue="JUnit.MealControllerTest.givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent" />
+        <item itemvalue="JUnit.All in mate" />
         <item itemvalue="JUnit.MealServiceTest.givenWhenCallingGetMealsThenStaticlistIsReturned" />
         <item itemvalue="JUnit.MealServiceTest" />
-        <item itemvalue="JUnit.MealControllerTest" />
-        <item itemvalue="JUnit.MateApplicationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -353,7 +359,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
     <MESSAGE value="added delete end point + test" />
-    <option name="LAST_COMMIT_MESSAGE" value="added delete end point + test" />
+    <MESSAGE value="implement delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement delete" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
