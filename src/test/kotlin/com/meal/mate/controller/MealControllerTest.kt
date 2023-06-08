@@ -16,18 +16,18 @@ import org.springframework.test.web.servlet.post
 import org.springframework.test.web.servlet.put
 import java.util.*
 
-
 @SpringBootTest
 @AutoConfigureDataMongo
 @AutoConfigureMockMvc
 class MealControllerTest {
-    @Autowired lateinit var mockMvc: MockMvc
+    @Autowired
+    lateinit var mockMvc: MockMvc
+
+    private val mapper = jacksonObjectMapper()
 
     companion object {
         const val PATH_MEALS = "/meals"
     }
-
-    private val mapper = jacksonObjectMapper()
 
     @Test
     fun givenStaticList_whenCallRestGet_thenReturnStaticJson() {
