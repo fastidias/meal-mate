@@ -16,7 +16,6 @@ import org.mockito.junit.jupiter.MockitoExtension
 import java.util.*
 
 private const val MEAL_NAME = "testName1"
-
 private val mealId = UUID.fromString("4d259eda-8318-463c-9d5f-ed1cd74b2e24")
 
 @ExtendWith(MockitoExtension::class)

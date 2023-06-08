@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="523ca113-9a10-47a8-bdb7-315566b7d2c0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/meal/mate/controller/MealControllerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/meal/mate/controller/MealControllerTest.kt" afterDir="false" />
-    </list>
+    <list default="true" id="523ca113-9a10-47a8-bdb7-315566b7d2c0" name="Changes" comment="adding mongodb credentials" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/delete-meal" />
+        <entry key="$PROJECT_DIR$" value="feature/using_mockito_instead_of_mockk" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,111 +39,34 @@
     </option>
   </component>
   <component name="ProjectId" id="2ONruAur9eWEElsy9XaigW6LBOV" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;1663&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;1662&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Coding/RP/Privat/teamplanner&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;7c13aea47d6e6ddefd62d2c00653b2a4&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "1663",
+    "RequestMappingsPanelWidth1": "1662",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feature/add__embedded__mongo",
+    "last_opened_file_path": "/lhome/alexaw1/workspace/private/meal-mate/src/test/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
+    "spring.configuration.checksum": "7c13aea47d6e6ddefd62d2c00653b2a4",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.All in mate (1)">
-    <configuration default="true" type="DjangoTestsConfigurationType">
-      <module name="mate" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
-      <module name="mate" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="mate" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Python.FlaskServer">
-      <module name="mate" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="mate" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <method v="2" />
-    </configuration>
+}]]></component>
+  <component name="RunManager" selected="JUnit.MealControllerTest">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -195,6 +115,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MealControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meal.mate.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meal.mate.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.meal.mate.controller.MealControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MealControllerTest.givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mate" />
       <extension name="coverage">
@@ -226,28 +161,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MealServiceTest.givenWhenCallingGetMealsThenStaticlistIsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.meal.mate.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.meal.mate.service" />
-      <option name="MAIN_CLASS_NAME" value="com.meal.mate.service.MealServiceTest" />
-      <option name="METHOD_NAME" value="givenWhenCallingGetMealsThenStaticlistIsReturned" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Run all tests" type="JUnit" factoryName="JUnit">
       <module name="mate" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="kotlin in mate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mate" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/kotlin" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -261,20 +188,21 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.Run all tests" />
+      <item itemvalue="JUnit.kotlin in mate" />
+      <item itemvalue="JUnit.MealControllerTest" />
       <item itemvalue="JUnit.All in mate (1)" />
       <item itemvalue="JUnit.All in mate" />
       <item itemvalue="JUnit.MealControllerTest.givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent" />
       <item itemvalue="JUnit.MealServiceTest" />
-      <item itemvalue="JUnit.MealServiceTest.givenWhenCallingGetMealsThenStaticlistIsReturned" />
       <item itemvalue="Spring Boot.MateApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MealControllerTest" />
+        <item itemvalue="JUnit.MealServiceTest" />
         <item itemvalue="JUnit.All in mate (1)" />
         <item itemvalue="JUnit.MealControllerTest.givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent" />
         <item itemvalue="JUnit.All in mate" />
-        <item itemvalue="JUnit.MealServiceTest.givenWhenCallingGetMealsThenStaticlistIsReturned" />
-        <item itemvalue="JUnit.MealServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -328,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685650044834</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="* replacing mockk with mockito">
+      <created>1686253904969</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686253904969</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +301,8 @@
     <MESSAGE value="init commit" />
     <MESSAGE value="added delete end point + test" />
     <MESSAGE value="implement delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement delete" />
+    <MESSAGE value="* replacing mockk with mockito" />
+    <option name="LAST_COMMIT_MESSAGE" value="* replacing mockk with mockito" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

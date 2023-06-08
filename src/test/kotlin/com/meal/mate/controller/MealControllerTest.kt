@@ -5,6 +5,7 @@ import com.meal.mate.model.Ingredient
 import com.meal.mate.model.Meal
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
@@ -16,13 +17,17 @@ import org.springframework.test.web.servlet.put
 import java.util.*
 
 @SpringBootTest
+@AutoConfigureDataMongo
 @AutoConfigureMockMvc
-class MealControllerTest(@Autowired val mockMvc: MockMvc) {
+class MealControllerTest {
+    @Autowired
+    lateinit var mockMvc: MockMvc
+
+    private val mapper = jacksonObjectMapper()
+
     companion object {
         const val PATH_MEALS = "/meals"
     }
-
-    val mapper = jacksonObjectMapper()
 
     @Test
     fun givenStaticList_whenCallRestGet_thenReturnStaticJson() {
