@@ -3,36 +3,39 @@ package com.meal.mate.service
 import com.meal.mate.model.Meal
 import com.meal.mate.repo.MealItem
 import com.meal.mate.repo.MealRepository
-import com.ninjasquad.springmockk.MockkBean
-import io.mockk.every
-import io.mockk.verify
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
+import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.ArgumentMatchers.any
+import org.mockito.BDDMockito.given
+import org.mockito.InjectMocks
+import org.mockito.Mock
+import org.mockito.Mockito.times
+import org.mockito.Mockito.verify
+import org.mockito.junit.jupiter.MockitoExtension
 import java.util.*
 
 private const val MEAL_NAME = "testName1"
 
 private val mealId = UUID.fromString("4d259eda-8318-463c-9d5f-ed1cd74b2e24")
 
-@SpringBootTest
+@ExtendWith(MockitoExtension::class)
 class MealServiceTest {
-    @Autowired
+    @InjectMocks
     private lateinit var mealService: MealService
-    @MockkBean
+    @Mock
     private lateinit var mealRepository: MealRepository
 
     @Test
     fun givenStaticList_whenCallingGetMeals_thenStaticListIsReturned() {
         // given
-        every { mealRepository.findAll() } returns listOf(MealItem(mealId, MEAL_NAME))
+        given(mealRepository.findAll()).willReturn(listOf(MealItem(mealId, MEAL_NAME)))
 
         // when
         val meals = mealService.getMeals()
 
         // then
-        verify(exactly = 1) { mealRepository.findAll() }
+        verify(mealRepository, times(1)).findAll()
         assertFalse(meals.isEmpty())
         assertEquals(1, meals.size)
         assertEquals(MEAL_NAME, meals[0].name)
@@ -42,8 +45,8 @@ class MealServiceTest {
     fun givenMeal_whenUpdateMealItemExists_thenUpdateMealItem(){
         // given
         val mealItem = MealItem(mealId, MEAL_NAME)
-        every { mealRepository.findById(mealId) } returns mealItem
-        every { mealRepository.save(any()) } returns mealItem
+        given(mealRepository.findById(mealId)).willReturn(mealItem)
+        given(mealRepository.save(any())).willReturn(mealItem)
 
         val newMealName = MEAL_NAME + "a"
         val meal = Meal(mealId , newMealName, 0, emptyList())
@@ -54,13 +57,13 @@ class MealServiceTest {
         // then
         assertEquals(updatedMeal, meal)
         assertEquals(mealItem.name, newMealName)
-        verify(exactly = 1) {mealRepository.save(mealItem)}
+        verify(mealRepository, times(1)).save(mealItem)
     }
 
     @Test
     fun givenMeal_whenUpdateMealItemNotExists_thenDontUpdateAnything(){
         // given
-        every { mealRepository.findById(mealId) } returns null
+        given(mealRepository.findById(mealId)).willReturn(null)
 
         val meal = Meal(mealId , MEAL_NAME + "a", 0, emptyList())
 
@@ -69,6 +72,6 @@ class MealServiceTest {
 
         // then
         assertEquals(notUpdatedMeal, meal)
-        verify(exactly = 0) {mealRepository.save(any())}
+        verify(mealRepository, times(0)).save(any())
     }
 }
