@@ -3,7 +3,4 @@ package com.meal.mate.repo
 import org.springframework.data.mongodb.repository.MongoRepository
 import java.util.*
 
-interface MealRepository: MongoRepository<MealItem, String> {
-
-    fun findById(id: UUID): MealItem?
-}
+interface MealRepository: MongoRepository<MealItem, String>

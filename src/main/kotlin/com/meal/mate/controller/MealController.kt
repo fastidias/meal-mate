@@ -32,12 +32,12 @@ class MealController(val mealService: MealService) {
     }
 
     @GetMapping("/{mealId}")
-    fun getMeal(@PathVariable mealId: UUID): ResponseEntity<Meal> {
+    fun getMeal(@PathVariable mealId: String): ResponseEntity<Meal> {
         return mealService.getMeal(mealId)?.let { meal -> ResponseEntity.ok(meal) } ?: ResponseEntity.notFound().build()
     }
 
     @PutMapping("/{mealId}")
-    fun updateMeal(@PathVariable mealId: UUID, @RequestBody meal: Meal): ResponseEntity<Void>{
+    fun updateMeal(@PathVariable mealId: String, @RequestBody meal: Meal): ResponseEntity<Void>{
         if(meal.id != mealId)
             return ResponseEntity.unprocessableEntity().build()
 
@@ -46,7 +46,7 @@ class MealController(val mealService: MealService) {
     }
 
     @DeleteMapping("/{mealId}")
-    fun deleteMeal(@PathVariable mealId: UUID): ResponseEntity<Unit> {
+    fun deleteMeal(@PathVariable mealId: String): ResponseEntity<Unit> {
         return ResponseEntity(mealService.deleteMeal(mealId), HttpStatus.NO_CONTENT)
     }
 }

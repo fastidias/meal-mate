@@ -37,7 +37,7 @@ class MealServiceTest {
         verify(mealRepository, times(1)).findAll()
         assertFalse(meals.isEmpty())
         assertEquals(1, meals.size)
-        assertEquals(MEAL_NAME, meals[0].name)
+        assertEquals(MEAL_NAME, meals[0].directions)
     }
 
     @Test
@@ -55,7 +55,7 @@ class MealServiceTest {
 
         // then
         assertEquals(updatedMeal, meal)
-        assertEquals(mealItem.name, newMealName)
+        assertEquals(mealItem.directions, newMealName)
         verify(mealRepository, times(1)).save(mealItem)
     }
 

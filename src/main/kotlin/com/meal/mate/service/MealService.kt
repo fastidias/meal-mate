@@ -11,27 +11,32 @@ import java.util.*
 class MealService(@Autowired val mealRepository: MealRepository) {
     fun getMeals(): List<Meal> {
         val mealItems = mealRepository.findAll()
-        return mealItems.map { mealItem -> Meal(mealItem.id, mealItem.name, 1, ArrayList()) }
+        return mealItems.map { mealItem -> Meal(mealItem.id, mealItem.directions, mealItem.name, 1, mealItem.ingredients)}
     }
 
-    fun getMeal(id: UUID): Meal? {
+    fun getMeal(id: String): Meal? {
         return getMeals().find { it.id == id }
     }
 
     fun createMeal(meal: Meal): Meal? {
-        mealRepository.save(MealItem(meal.id, meal.name))
+        mealRepository.save(MealItem(meal.id, meal.directions, meal.name, meal.ingredients))
         return meal
     }
 
+    // TODO: get() wieder entfernen
     fun updateMeal(meal: Meal): Meal? {
-        mealRepository.findById(meal.id)?.let {
-            it.name = meal.name
-            mealRepository.save(it)
+        return try {
+            mealRepository.findById(meal.id).let {
+                it.get().directions = meal.directions
+                mealRepository.save(it.get())
+            }
+            meal
+        } catch (e: Exception){
+            null
         }
-        return meal
     }
 
-    fun deleteMeal(id: UUID){
+    fun deleteMeal(id: String){
         val matchingMeals = mealRepository.findAll().filter { mealItem ->  mealItem.id == id}
         mealRepository.delete(matchingMeals[0])
     }
