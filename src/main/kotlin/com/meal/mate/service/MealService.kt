@@ -11,7 +11,7 @@ import java.util.*
 class MealService(@Autowired val mealRepository: MealRepository) {
     fun getMeals(): List<Meal> {
         val mealItems = mealRepository.findAll()
-        return mealItems.map { mealItem -> Meal(mealItem.id, mealItem.directions, mealItem.name, 1, mealItem.ingredients)}
+        return mealItems.map { mealItem -> Meal(mealItem.id, mealItem.directions, mealItem.name, 1, mealItem.ingredients, mealItem.imagesource)}
     }
 
     fun getMeal(id: String): Meal? {
@@ -19,7 +19,7 @@ class MealService(@Autowired val mealRepository: MealRepository) {
     }
 
     fun createMeal(meal: Meal): Meal? {
-        mealRepository.save(MealItem(meal.id, meal.directions, meal.name, meal.ingredients))
+        mealRepository.save(MealItem(meal.id, meal.directions, meal.name, meal.ingredients, meal.imagesource))
         return meal
     }
 
