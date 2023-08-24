@@ -27,7 +27,7 @@ class MealServiceTest : MealTestBase() {
     @Test
     fun givenStaticList_whenCallingGetMeals_thenStaticListIsReturned() {
         // given
-        given(mealRepository.findAll()).willReturn(listOf(defaultMealItem()))
+        given(mealRepository.findAll()).willReturn(listOf(defaultMealItem1()))
 
         // when
         val meals = mealService.getMeals()
@@ -36,18 +36,18 @@ class MealServiceTest : MealTestBase() {
         verify(mealRepository, times(1)).findAll()
         assertFalse(meals.isEmpty())
         assertEquals(1, meals.size)
-        assertEquals(MEAL_NAME, meals[0].directions)
+        assertEquals(MEAL_NAME_1, meals[0].directions)
     }
 
     @Test
     fun givenMeal_whenUpdateMealItemExists_thenUpdateMealItem() {
         // given
-        val mealItem = defaultMealItem()
-        given(mealRepository.findById(MEAL_ID)).willReturn(Optional.of(mealItem))
+        val mealItem = defaultMealItem1()
+        given(mealRepository.findById(MEAL_ID_1)).willReturn(Optional.of(mealItem))
         given(mealRepository.save(any())).willReturn(mealItem)
 
-        val newMealName = MEAL_NAME + "a"
-        val meal = Meal(MEAL_ID, MEAL_DIRECTIONS, newMealName, 0, emptyList(), MEAL_IMAGE_URL)
+        val newMealName = MEAL_NAME_1 + "a"
+        val meal = Meal(MEAL_ID_1, MEAL_DIRECTIONS_1, newMealName, 0, emptyList(), MEAL_IMAGE_URL_1)
 
         // when
         val updatedMeal = mealService.updateMeal(meal)
@@ -61,9 +61,9 @@ class MealServiceTest : MealTestBase() {
     @Test
     fun givenMeal_whenUpdateMealItemNotExists_thenDontUpdateAnything() {
         // given
-        given(mealRepository.findById(MEAL_ID)).willReturn(null)
+        given(mealRepository.findById(MEAL_ID_1)).willReturn(null)
 
-        val meal = Meal(MEAL_ID, MEAL_DIRECTIONS, MEAL_NAME + "a", 0, emptyList(), MEAL_IMAGE_URL)
+        val meal = Meal(MEAL_ID_1, MEAL_DIRECTIONS_1, MEAL_NAME_1 + "a", 0, emptyList(), MEAL_IMAGE_URL_1)
 
         // when
         val notUpdatedMeal = mealService.updateMeal(meal)

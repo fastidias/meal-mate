@@ -19,7 +19,7 @@ class MealController(val mealService: MealService) {
     }
 
     @PostMapping
-    fun createMeal(@RequestBody meal: Meal): ResponseEntity<Meal> {
+    fun createMeal(@RequestBody meal: Meal): ResponseEntity<Unit> {
         return mealService.createMeal(meal).let { createdMeal ->
             ResponseEntity.created(URI("${PATH_MEALS}/${createdMeal.id}")).build()
         }
