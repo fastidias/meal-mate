@@ -3,8 +3,7 @@ package com.meal.mate.service
 import com.meal.mate.*
 import com.meal.mate.model.Meal
 import com.meal.mate.repo.MealRepository
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.ArgumentMatchers.any
@@ -25,9 +24,9 @@ class MealServiceTest : MealTestBase() {
     private lateinit var mealRepository: MealRepository
 
     @Test
-    fun givenStaticList_whenCallingGetMeals_thenStaticListIsReturned() {
+    fun givenMealEntities_whenCallingGetMeals_thenMealEntitiesAreReturned() {
         // given
-        given(mealRepository.findAll()).willReturn(listOf(defaultMealItem1()))
+        given(mealRepository.findAll()).willReturn(defaultMealItemList())
 
         // when
         val meals = mealService.getMeals()
@@ -35,12 +34,26 @@ class MealServiceTest : MealTestBase() {
         // then
         verify(mealRepository, times(1)).findAll()
         assertFalse(meals.isEmpty())
-        assertEquals(1, meals.size)
-        assertEquals(MEAL_NAME_1, meals[0].directions)
+        assertEquals(2, meals.size)
+        assertEquals(MEAL_NAME_1, meals[0].name)
+        assertEquals(MEAL_NAME_2, meals[1].name)
     }
 
     @Test
-    fun givenMeal_whenUpdateMealItemExists_thenUpdateMealItem() {
+    fun givenNoMealEntities_whenCallingGetMeals_thenNothingIsReturned() {
+        // given
+        given(mealRepository.findAll()).willReturn(listOf())
+
+        // when
+        val meals = mealService.getMeals()
+
+        // then
+        verify(mealRepository, times(1)).findAll()
+        assertTrue(meals.isEmpty())
+    }
+
+    @Test
+    fun givenMealEntities_whenUpdateMealItemExists_thenUpdateMealItem() {
         // given
         val mealItem = defaultMealItem1()
         given(mealRepository.findById(MEAL_ID_1)).willReturn(Optional.of(mealItem))
@@ -54,14 +67,14 @@ class MealServiceTest : MealTestBase() {
 
         // then
         assertEquals(updatedMeal, meal)
-        assertEquals(mealItem.directions, newMealName)
+        assertEquals(mealItem.name, newMealName)
         verify(mealRepository, times(1)).save(mealItem)
     }
 
     @Test
     fun givenMeal_whenUpdateMealItemNotExists_thenDontUpdateAnything() {
         // given
-        given(mealRepository.findById(MEAL_ID_1)).willReturn(null)
+        given(mealRepository.findById(MEAL_ID_1)).willReturn(Optional.empty())
 
         val meal = Meal(MEAL_ID_1, MEAL_DIRECTIONS_1, MEAL_NAME_1 + "a", 0, emptyList(), MEAL_IMAGE_URL_1)
 

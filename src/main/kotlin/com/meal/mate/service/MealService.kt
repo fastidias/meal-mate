@@ -1,7 +1,7 @@
 package com.meal.mate.service
 
 import com.meal.mate.model.Meal
-import com.meal.mate.repo.MealItem
+import com.meal.mate.repo.MealEntity
 import com.meal.mate.repo.MealRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -27,13 +27,13 @@ class MealService(@Autowired val mealRepository: MealRepository) {
     }
 
     fun createMeal(meal: Meal): Meal {
-        mealRepository.save(MealItem(meal.id, meal.directions, meal.name, meal.ingredients, meal.imagesource))
+        mealRepository.save(MealEntity(meal.id, meal.directions, meal.name, meal.ingredients, meal.imagesource))
         return meal
     }
 
     fun updateMeal(meal: Meal): Meal {
         mealRepository.findById(meal.id).ifPresent {
-            it.directions = meal.directions
+            it.name = meal.name
             mealRepository.save(it)
         }
         return meal

@@ -76,7 +76,7 @@ class MealControllerIT : MealTestBase() {
     }
 
     @Test
-    fun givenDefaultMealItem_whenCallRestGetMeal_thenReturnMealJson () {
+    fun givenDefaultMealItem_whenCallRestGetMeal_thenReturnMealJson() {
         // given
         val mealItem = defaultMealItem1()
         mealRepository.save(mealItem)
@@ -118,7 +118,6 @@ class MealControllerIT : MealTestBase() {
 
     @Test
     fun givenMealObject_whenCallRestCreateMeal_thenReturnMealUrl() {
-        // TODO: test different behaviour for POST requests
         val meal = Meal(
             "2f81508a-69e9-445f-ac82-40418c7bc42f",
             "Knoblauchspaghetti mit frischen Tomaten",
@@ -150,7 +149,6 @@ class MealControllerIT : MealTestBase() {
 
     @Test
     fun givenMealObject_whenCallRestUpdateMeal_thenUpdateAndReturnNoContent() {
-        // TODO: test different behaviour for PUT requests
         val mealToUpdate = Meal(
             "2f81508a-69e9-445f-ac82-40418c7bc42f",
             "Knoblauchspaghetti mit alten Tomaten",
