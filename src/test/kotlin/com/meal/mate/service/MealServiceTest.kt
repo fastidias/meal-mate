@@ -1,7 +1,7 @@
 package com.meal.mate.service
 
 import com.meal.mate.*
-import com.meal.mate.model.Meal
+import com.meal.mate.model.MealDTO
 import com.meal.mate.repo.MealRepository
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
@@ -60,13 +60,13 @@ class MealServiceTest : MealTestBase() {
         given(mealRepository.save(any())).willReturn(mealItem)
 
         val newMealName = MEAL_NAME_1 + "a"
-        val meal = Meal(MEAL_ID_1, MEAL_DIRECTIONS_1, newMealName, 0, emptyList(), MEAL_IMAGE_URL_1)
+        val mealDTO = MealDTO(MEAL_ID_1, MEAL_DIRECTIONS_1, newMealName, 0, emptyList(), MEAL_IMAGE_URL_1)
 
         // when
-        val updatedMeal = mealService.updateMeal(meal)
+        val updatedMeal = mealService.updateMeal(mealDTO)
 
         // then
-        assertEquals(updatedMeal, meal)
+        assertEquals(updatedMeal, mealDTO)
         assertEquals(mealItem.name, newMealName)
         verify(mealRepository, times(1)).save(mealItem)
     }
@@ -76,13 +76,13 @@ class MealServiceTest : MealTestBase() {
         // given
         given(mealRepository.findById(MEAL_ID_1)).willReturn(Optional.empty())
 
-        val meal = Meal(MEAL_ID_1, MEAL_DIRECTIONS_1, MEAL_NAME_1 + "a", 0, emptyList(), MEAL_IMAGE_URL_1)
+        val mealDTO = MealDTO(MEAL_ID_1, MEAL_DIRECTIONS_1, MEAL_NAME_1 + "a", 0, emptyList(), MEAL_IMAGE_URL_1)
 
         // when
-        val notUpdatedMeal = mealService.updateMeal(meal)
+        val notUpdatedMeal = mealService.updateMeal(mealDTO)
 
         // then
-        assertEquals(notUpdatedMeal, meal)
+        assertEquals(notUpdatedMeal, mealDTO)
         verify(mealRepository, times(0)).save(any())
     }
 }

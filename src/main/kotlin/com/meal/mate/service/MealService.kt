@@ -1,17 +1,17 @@
 package com.meal.mate.service
 
-import com.meal.mate.model.Meal
-import com.meal.mate.repo.MealEntity
+import com.meal.mate.model.MealDTO
+import com.meal.mate.repo.Meal
 import com.meal.mate.repo.MealRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
 class MealService(@Autowired val mealRepository: MealRepository) {
-    fun getMeals(): List<Meal> {
+    fun getMeals(): List<MealDTO> {
         val mealItems = mealRepository.findAll()
         return mealItems.map { mealItem ->
-            Meal(
+            MealDTO(
                 mealItem.id,
                 mealItem.directions,
                 mealItem.name,
@@ -22,21 +22,29 @@ class MealService(@Autowired val mealRepository: MealRepository) {
         }
     }
 
-    fun getMeal(id: String): Meal? {
+    fun getMeal(id: String): MealDTO? {
         return getMeals().find { it.id == id }
     }
 
-    fun createMeal(meal: Meal): Meal {
-        mealRepository.save(MealEntity(meal.id, meal.directions, meal.name, meal.ingredients, meal.imagesource))
-        return meal
+    fun createMeal(mealDTO: MealDTO): MealDTO {
+        mealRepository.save(
+            Meal(
+                mealDTO.id,
+                mealDTO.directions,
+                mealDTO.name,
+                mealDTO.ingredients,
+                mealDTO.imagesource
+            )
+        )
+        return mealDTO
     }
 
-    fun updateMeal(meal: Meal): Meal {
-        mealRepository.findById(meal.id).ifPresent {
-            it.name = meal.name
+    fun updateMeal(mealDTO: MealDTO): MealDTO {
+        mealRepository.findById(mealDTO.id).ifPresent {
+            it.name = mealDTO.name
             mealRepository.save(it)
         }
-        return meal
+        return mealDTO
     }
 
     fun deleteMeal(id: String) {

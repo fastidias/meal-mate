@@ -4,7 +4,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.meal.mate.MealTestBase
 import com.meal.mate.PATH_MEALS
 import com.meal.mate.model.Ingredient
-import com.meal.mate.model.Meal
+import com.meal.mate.model.MealDTO
 import com.meal.mate.repo.MealRepository
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
@@ -118,7 +118,7 @@ class MealControllerIT : MealTestBase() {
 
     @Test
     fun givenMealObject_whenCallRestCreateMeal_thenReturnMealUrl() {
-        val meal = Meal(
+        val mealDTO = MealDTO(
             "2f81508a-69e9-445f-ac82-40418c7bc42f",
             "Knoblauchspaghetti mit frischen Tomaten",
             "Sauerkraut",
@@ -129,7 +129,7 @@ class MealControllerIT : MealTestBase() {
 
         val mock = mockMvc.post(PATH_MEALS) {
             contentType = MediaType.APPLICATION_JSON
-            content = mapper.writeValueAsString(meal)
+            content = mapper.writeValueAsString(mealDTO)
         }
             .andDo { print() }
             .andExpect {
@@ -149,7 +149,7 @@ class MealControllerIT : MealTestBase() {
 
     @Test
     fun givenMealObject_whenCallRestUpdateMeal_thenUpdateAndReturnNoContent() {
-        val mealToUpdate = Meal(
+        val mealDTOToUpdate = MealDTO(
             "2f81508a-69e9-445f-ac82-40418c7bc42f",
             "Knoblauchspaghetti mit alten Tomaten",
             "Sauerkraut",
@@ -158,9 +158,9 @@ class MealControllerIT : MealTestBase() {
             "https://www.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-760x400.webp"
         )
 
-        mockMvc.put("$PATH_MEALS/${mealToUpdate.id}") {
+        mockMvc.put("$PATH_MEALS/${mealDTOToUpdate.id}") {
             contentType = MediaType.APPLICATION_JSON
-            content = mapper.writeValueAsString(mealToUpdate)
+            content = mapper.writeValueAsString(mealDTOToUpdate)
         }
             .andDo { print() }
             .andExpect {
@@ -170,7 +170,7 @@ class MealControllerIT : MealTestBase() {
 
     @Test
     fun givenMealObjectOnWrongPathMealId_whenCallRestUpdateMeal_thenReturnUnprocessableEntity() {
-        val mealToUpdate = Meal(
+        val mealDTOToUpdate = MealDTO(
             "2f81508a-69e9-445f-ac82-40418c7bc42f",
             "Knoblauchspaghetti mit alten Tomaten",
             "Sauerkraut",
@@ -181,7 +181,7 @@ class MealControllerIT : MealTestBase() {
 
         mockMvc.put("$PATH_MEALS/11111111-1111-1111-1111-111111111111") {
             contentType = MediaType.APPLICATION_JSON
-            content = mapper.writeValueAsString(mealToUpdate)
+            content = mapper.writeValueAsString(mealDTOToUpdate)
         }
             .andDo { print() }
             .andExpect {
@@ -191,7 +191,7 @@ class MealControllerIT : MealTestBase() {
 
     @Test
     fun givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent() {
-        val meal = Meal(
+        val mealDTO = MealDTO(
             "2f81508a-69e9-445f-ac82-40418c7bc42f",
             "Knoblauchspaghetti mit frischen Tomaten",
             "Sauerkraut",
@@ -202,7 +202,7 @@ class MealControllerIT : MealTestBase() {
 
         mockMvc.put("/meals") {
             contentType = MediaType.APPLICATION_JSON
-            content = mapper.writeValueAsString(meal)
+            content = mapper.writeValueAsString(mealDTO)
         }
 
         mockMvc.delete("/meals/2f81508a-69e9-445f-ac82-40418c7bc42f").andDo { print() }

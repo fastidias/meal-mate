@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document("recipes")
-class MealEntity(
+class Meal(
     @Id val id: String,
     var directions: String,
     var name: String,

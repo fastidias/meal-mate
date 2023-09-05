@@ -1,7 +1,7 @@
 package com.meal.mate.controller
 
 import com.meal.mate.PATH_MEALS
-import com.meal.mate.model.Meal
+import com.meal.mate.model.MealDTO
 import com.meal.mate.service.MealService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -14,28 +14,28 @@ import java.net.URI
 @CrossOrigin(origins = ["http://localhost:4200/"])
 class MealController(val mealService: MealService) {
     @GetMapping
-    fun getMeals(): ResponseEntity<List<Meal>> {
+    fun getMeals(): ResponseEntity<List<MealDTO>> {
         return ResponseEntity.ok(mealService.getMeals())
     }
 
     @PostMapping
-    fun createMeal(@RequestBody meal: Meal): ResponseEntity<Unit> {
-        return mealService.createMeal(meal).let { createdMeal ->
+    fun createMeal(@RequestBody mealDTO: MealDTO): ResponseEntity<Unit> {
+        return mealService.createMeal(mealDTO).let { createdMeal ->
             ResponseEntity.created(URI("${PATH_MEALS}/${createdMeal.id}")).build()
         }
     }
 
     @GetMapping("/{mealId}")
-    fun getMeal(@PathVariable mealId: String): ResponseEntity<Meal> {
+    fun getMeal(@PathVariable mealId: String): ResponseEntity<MealDTO> {
         return mealService.getMeal(mealId)?.let { meal -> ResponseEntity.ok(meal) } ?: ResponseEntity.notFound().build()
     }
 
     @PutMapping("/{mealId}")
-    fun updateMeal(@PathVariable mealId: String, @RequestBody meal: Meal): ResponseEntity<Unit> {
-        if (meal.id != mealId)
+    fun updateMeal(@PathVariable mealId: String, @RequestBody mealDTO: MealDTO): ResponseEntity<Unit> {
+        if (mealDTO.id != mealId)
             return ResponseEntity.unprocessableEntity().build()
 
-        mealService.updateMeal(meal)
+        mealService.updateMeal(mealDTO)
 
         return ResponseEntity.noContent().build()
     }
