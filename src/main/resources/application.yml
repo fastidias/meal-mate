@@ -1,5 +1,10 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://root:rootpassword@localhost:27017/local?authSource=admin
-      database: local
+      uri: mongodb://root:rootpassword@localhost:27017/
+      database: meal_mate_db
+de:
+  flapdoodle:
+    mongodb:
+      embedded:
+        version: 6.0.5

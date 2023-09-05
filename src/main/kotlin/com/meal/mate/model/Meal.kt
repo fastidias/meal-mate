@@ -1,5 +1,10 @@
 package com.meal.mate.model
 
-import java.util.*
-
-data class Meal(val id: UUID, val name: String, val portionSize: Int, val ingredients: List<Ingredient>)
+data class Meal(
+    val id: String,
+    val directions: String,
+    val name: String,
+    val portionSize: Int,
+    val ingredients: List<Ingredient>,
+    val imagesource: String
+)
