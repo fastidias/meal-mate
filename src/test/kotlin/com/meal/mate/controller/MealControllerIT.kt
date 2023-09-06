@@ -121,8 +121,8 @@ class MealControllerIT : MealTestBase() {
         val meal = Meal(
             "2f81508a-69e9-445f-ac82-40418c7bc42f",
             "Knoblauchspaghetti mit frischen Tomaten",
-            "Sauerkraut",
             4,
+            "Sauerkraut",
             listOf(Ingredient("Spaghetti", "500", "g")),
             "https://www.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-760x400.webp"
         )
@@ -152,8 +152,8 @@ class MealControllerIT : MealTestBase() {
         val mealToUpdate = Meal(
             "2f81508a-69e9-445f-ac82-40418c7bc42f",
             "Knoblauchspaghetti mit alten Tomaten",
-            "Sauerkraut",
             4,
+            "Sauerkraut",
             listOf(Ingredient("Spaghetti", "500", "g")),
             "https://www.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-760x400.webp"
         )
@@ -173,8 +173,8 @@ class MealControllerIT : MealTestBase() {
         val mealToUpdate = Meal(
             "2f81508a-69e9-445f-ac82-40418c7bc42f",
             "Knoblauchspaghetti mit alten Tomaten",
-            "Sauerkraut",
             4,
+            "Sauerkraut",
             listOf(Ingredient("Spaghetti", "500", "g")),
             "https://www.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-760x400.webp"
         )
@@ -194,8 +194,8 @@ class MealControllerIT : MealTestBase() {
         val meal = Meal(
             "2f81508a-69e9-445f-ac82-40418c7bc42f",
             "Knoblauchspaghetti mit frischen Tomaten",
-            "Sauerkraut",
             4,
+            "Sauerkraut",
             listOf(Ingredient("Spaghetti", "500", "g")),
             "https://www.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-760x400.webp"
         )
