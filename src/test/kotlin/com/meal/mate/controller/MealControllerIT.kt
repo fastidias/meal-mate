@@ -6,7 +6,9 @@ import com.meal.mate.PATH_MEALS
 import com.meal.mate.model.Ingredient
 import com.meal.mate.model.Meal
 import com.meal.mate.repo.MealRepository
+import com.mongodb.assertions.Assertions.assertTrue
 import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
@@ -17,6 +19,8 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.SpyBean
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.*
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
+
 
 @SpringBootTest
 @AutoConfigureDataMongo
@@ -145,6 +149,32 @@ class MealControllerIT : MealTestBase() {
                     contentType(MediaType.APPLICATION_JSON)
                 }
             }
+    }
+
+    @Test
+    fun givenMealObject_whenCallRestCreateMeal_thenReturnMealPortionSize() {
+        val meal = Meal(
+            "2f81508a-69e9-445f-ac82-40418c7bc42f",
+            "Knoblauchspaghetti mit frischen Tomaten",
+            4,
+            "Sauerkraut",
+            listOf(Ingredient("Spaghetti", "500", "g")),
+            "https://www.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-760x400.webp"
+        )
+
+        val mock = mockMvc.post(PATH_MEALS) {
+            contentType = MediaType.APPLICATION_JSON
+            content = mapper.writeValueAsString(meal)
+        }
+            .andExpect {
+                status { isCreated() }
+            }
+            .andReturn()
+
+        val createdMealDBO = mealRepository.findById(meal.id)
+        val createdMeal = createdMealDBO.get()
+
+        assertEquals(meal.portionSize, createdMeal.portionSize)
     }
 
     @Test
