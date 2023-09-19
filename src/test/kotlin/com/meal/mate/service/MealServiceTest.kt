@@ -60,7 +60,7 @@ class MealServiceTest : MealTestBase() {
         given(mealRepository.save(any())).willReturn(mealItem)
 
         val newMealName = MEAL_NAME_1 + "a"
-        val meal = Meal(MEAL_ID_1, MEAL_DIRECTIONS_1, newMealName, 0, emptyList(), MEAL_IMAGE_URL_1)
+        val meal = Meal(MEAL_ID_1, newMealName, MEAL_PORTIONSIZE_1 ,MEAL_DIRECTIONS_1, emptyList(), MEAL_IMAGE_URL_1)
 
         // when
         val updatedMeal = mealService.updateMeal(meal)
@@ -76,7 +76,7 @@ class MealServiceTest : MealTestBase() {
         // given
         given(mealRepository.findById(MEAL_ID_1)).willReturn(Optional.empty())
 
-        val meal = Meal(MEAL_ID_1, MEAL_DIRECTIONS_1, MEAL_NAME_1 + "a", 0, emptyList(), MEAL_IMAGE_URL_1)
+        val meal = Meal(MEAL_ID_1, MEAL_NAME_1 + "a", MEAL_PORTIONSIZE_1 ,MEAL_DIRECTIONS_1, emptyList(), MEAL_IMAGE_URL_1)
 
         // when
         val notUpdatedMeal = mealService.updateMeal(meal)

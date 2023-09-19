@@ -13,9 +13,9 @@ class MealService(@Autowired val mealRepository: MealRepository) {
         return mealItems.map { mealItem ->
             Meal(
                 mealItem.id,
-                mealItem.directions,
                 mealItem.name,
-                1,
+                mealItem.portionSize,
+                mealItem.directions,
                 mealItem.ingredients,
                 mealItem.imagesource
             )
@@ -30,8 +30,9 @@ class MealService(@Autowired val mealRepository: MealRepository) {
         mealRepository.save(
             MealDBO(
                 meal.id,
-                meal.directions,
                 meal.name,
+                meal.portionSize,
+                meal.directions,
                 meal.ingredients,
                 meal.imagesource
             )
