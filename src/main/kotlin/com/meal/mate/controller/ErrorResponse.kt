@@ -1,10 +1,11 @@
 package com.meal.mate.controller
 
-import org.springframework.http.HttpStatus
+import java.time.LocalDateTime
 
 //TODO: when adding own exception classes, maybe move this class into that folder (or subfolder "handling")
 data class ErrorResponse (
-    val statusCode: HttpStatus,
+    val statusCode: Int,
     val statusMessage: String,
     val message: String,
+    val timestamp: LocalDateTime = LocalDateTime.now(),
 )

@@ -22,7 +22,7 @@ val MEAL_INGREDIENTS_2 = listOf(Ingredient("Kichererbsen", "40", "g"))
 
 // TODO: set realistic values for mealItem examples
 open class MealTestBase {
-    fun defaultMealItem1() = MealDBO(MEAL_ID_1, MEAL_NAME_1, MEAL_PORTIONSIZE_1, MEAL_DIRECTIONS_1, MEAL_INGREDIENTS_1, MEAL_IMAGE_URL_1)
-    fun defaultMealItem2() = MealDBO(MEAL_ID_2, MEAL_NAME_2, MEAL_PORTIONSIZE_2, MEAL_DIRECTIONS_2, MEAL_INGREDIENTS_2, MEAL_IMAGE_URL_2)
-    fun defaultMealItemList() = listOf(defaultMealItem1(), defaultMealItem2())
+    fun defaultMealDBO1() = MealDBO(MEAL_ID_1, MEAL_NAME_1, MEAL_PORTIONSIZE_1, MEAL_DIRECTIONS_1, MEAL_INGREDIENTS_1, MEAL_IMAGE_URL_1)
+    fun defaultMealDBO2() = MealDBO(MEAL_ID_2, MEAL_NAME_2, MEAL_PORTIONSIZE_2, MEAL_DIRECTIONS_2, MEAL_INGREDIENTS_2, MEAL_IMAGE_URL_2)
+    fun defaultMealDBOList() = listOf(defaultMealDBO1(), defaultMealDBO2())
 }

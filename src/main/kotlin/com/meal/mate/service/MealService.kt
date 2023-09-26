@@ -17,7 +17,7 @@ class MealService(@Autowired val mealRepository: MealRepository) {
                 mealItem.portionSize,
                 mealItem.directions,
                 mealItem.ingredients,
-                mealItem.imagesource
+                mealItem.imageSource
             )
         }
     }
@@ -34,7 +34,7 @@ class MealService(@Autowired val mealRepository: MealRepository) {
                 meal.portionSize,
                 meal.directions,
                 meal.ingredients,
-                meal.imagesource
+                meal.imageSource
             )
         )
         return meal

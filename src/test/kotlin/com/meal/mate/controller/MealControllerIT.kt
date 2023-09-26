@@ -10,6 +10,7 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import org.mockito.BDDMockito.given
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import org.springframework.beans.factory.annotation.Autowired
@@ -19,6 +20,10 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.SpyBean
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.*
+import kotlin.Error
+import org.hamcrest.core.IsEqual
+import org.hamcrest.core.IsNot
+import org.hamcrest.text.IsEmptyString.emptyString
 
 
 @SpringBootTest
@@ -46,6 +51,7 @@ class MealControllerIT : MealTestBase() {
                 status { isOk() }
                 content {
                     contentType(MediaType.APPLICATION_JSON)
+                    json("[]")
                 }
             }
 
@@ -56,7 +62,7 @@ class MealControllerIT : MealTestBase() {
     @Test
     fun givenDefaultMealItem_whenCallRestGetMeals_thenReturnMealListJson() {
         // given
-        mealRepository.saveAll(defaultMealItemList())
+        mealRepository.saveAll(defaultMealDBOList())
 
         // when
         mockMvc.get(PATH_MEALS)
@@ -68,7 +74,7 @@ class MealControllerIT : MealTestBase() {
                     contentType(MediaType.APPLICATION_JSON)
                     json(
                         """
-                        [{"id":"4d259eda-8318-463c-9d5f-ed1cd74b2e24","directions":"Sauerkraut","name":"Knoblauchspaghetti mit frischen Tomaten","portionSize":1,"ingredients":[{"name":"Spaghetti","quantity":"500","unit":"g"}],"imagesource":"https://www.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-760x400.webp"},{"id":"4d259eda-8318-463c-9d5f-ed1cd74b2e25","directions":"Die Zutaten für den Teig zusammenrühren und kurz ruhen lassen. Dann über eine Spätzle-Reibe in kochendes Wasser schaben.","name":"Vegane Kicher-Spätzle","portionSize":1,"ingredients":[{"name":"Kichererbsen","quantity":"40","unit":"g"}],"imagesource":"https://www.chefkoch.de/rezepte/3461541515680773/Vegane-Kicher-Spaetzle.html"}]
+                        [{"id":"4d259eda-8318-463c-9d5f-ed1cd74b2e24","directions":"Sauerkraut","name":"Knoblauchspaghetti mit frischen Tomaten","portionSize":1,"ingredients":[{"name":"Spaghetti","quantity":"500","unit":"g"}],"imageSource":"https://www.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-760x400.webp"},{"id":"4d259eda-8318-463c-9d5f-ed1cd74b2e25","directions":"Die Zutaten für den Teig zusammenrühren und kurz ruhen lassen. Dann über eine Spätzle-Reibe in kochendes Wasser schaben.","name":"Vegane Kicher-Spätzle","portionSize":1,"ingredients":[{"name":"Kichererbsen","quantity":"40","unit":"g"}],"imageSource":"https://www.chefkoch.de/rezepte/3461541515680773/Vegane-Kicher-Spaetzle.html"}]
                         """
                     )
                 }
@@ -79,11 +85,62 @@ class MealControllerIT : MealTestBase() {
     }
 
     @Test
+    fun givenDefaultMealDBOs_whenThrowRuntimeException_thenReturnInternalServerError() {
+        // given
+        given(mealRepository.findAll()).willThrow(RuntimeException("my message"))
+
+        // when
+        mockMvc.get(PATH_MEALS)
+            .andExpect {
+
+                // then
+                status { isInternalServerError() }
+                content {
+                    contentType(MediaType.APPLICATION_JSON)
+                    jsonPath("$.statusCode", IsEqual(500))
+                    jsonPath("$.statusMessage", IsEqual("Internal Server Error"))
+                    jsonPath("$.message", IsEqual("An unknown exception occurred"))
+                    jsonPath("$.timestamp", IsNot(emptyString()))
+                }
+            }
+
+        // then
+        verify(mealRepository, times(1)).findAll()
+    }
+
+    @Test
+    fun givenDefaultMealDBOs_whenThrowError_thenReturnInternalServerError() {
+        // given
+        given(mealRepository.findAll()).willThrow(Error("my message"))
+
+        // when
+        mockMvc.get(PATH_MEALS)
+            .andExpect {
+
+                // then
+                status { isInternalServerError() }
+                content {
+                    contentType(MediaType.APPLICATION_JSON)
+                    content {
+                        contentType(MediaType.APPLICATION_JSON)
+                        jsonPath("$.statusCode", IsEqual(500))
+                        jsonPath("$.statusMessage", IsEqual("Internal Server Error"))
+                        jsonPath("$.message", IsEqual("An unknown exception occurred"))
+                        jsonPath("$.timestamp", IsNot(emptyString()))
+                    }
+                }
+            }
+
+        // then
+        verify(mealRepository, times(1)).findAll()
+    }
+
+    @Test
     fun givenDefaultMealItem_whenCallRestGetMeal_thenReturnMealJson() {
         // given
-        val mealItem = defaultMealItem1()
+        val mealItem = defaultMealDBO1()
         mealRepository.save(mealItem)
-        mealRepository.save(defaultMealItem2())
+        mealRepository.save(defaultMealDBO2())
 
         // when
         mockMvc.get("$PATH_MEALS/${mealItem.id}")
@@ -96,7 +153,7 @@ class MealControllerIT : MealTestBase() {
                     contentType(MediaType.APPLICATION_JSON)
                     json(
                         """
-                        {"id":"4d259eda-8318-463c-9d5f-ed1cd74b2e24","directions":"Sauerkraut","name":"Knoblauchspaghetti mit frischen Tomaten","portionSize":1,"ingredients":[{"name":"Spaghetti","quantity":"500","unit":"g"}],"imagesource":"https://www.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-760x400.webp"}
+                        {"id":"4d259eda-8318-463c-9d5f-ed1cd74b2e24","directions":"Sauerkraut","name":"Knoblauchspaghetti mit frischen Tomaten","portionSize":1,"ingredients":[{"name":"Spaghetti","quantity":"500","unit":"g"}],"imageSource":"https://www.searchenginejournal.com/wp-content/uploads/2022/06/image-search-1600-x-840-px-62c6dc4ff1eee-sej-760x400.webp"}
                         """
                     )
                 }
@@ -106,7 +163,7 @@ class MealControllerIT : MealTestBase() {
     @Test
     fun givenDefaultMealItem_whenCallRestGetMeal_thenReturnNotFound() {
         // given
-        mealRepository.saveAll(defaultMealItemList())
+        mealRepository.saveAll(defaultMealDBOList())
         val uuid = "11111111-1111-1111-1111-111111111111"
 
         // when

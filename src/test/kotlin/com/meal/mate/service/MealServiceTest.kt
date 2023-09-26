@@ -26,7 +26,7 @@ class MealServiceTest : MealTestBase() {
     @Test
     fun givenMealEntities_whenCallingGetMeals_thenMealEntitiesAreReturned() {
         // given
-        given(mealRepository.findAll()).willReturn(defaultMealItemList())
+        given(mealRepository.findAll()).willReturn(defaultMealDBOList())
 
         // when
         val meals = mealService.getMeals()
@@ -55,7 +55,7 @@ class MealServiceTest : MealTestBase() {
     @Test
     fun givenMealEntities_whenUpdateMealItemExists_thenUpdateMealItem() {
         // given
-        val mealItem = defaultMealItem1()
+        val mealItem = defaultMealDBO1()
         given(mealRepository.findById(MEAL_ID_1)).willReturn(Optional.of(mealItem))
         given(mealRepository.save(any())).willReturn(mealItem)
 

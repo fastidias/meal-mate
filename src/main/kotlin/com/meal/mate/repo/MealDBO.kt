@@ -11,5 +11,5 @@ class MealDBO(
     var portionSize: Int,
     var directions: String,
     var ingredients: List<Ingredient>,
-    var imagesource: String
+    var imageSource: String
 )
