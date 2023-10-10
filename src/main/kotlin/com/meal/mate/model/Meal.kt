@@ -6,5 +6,6 @@ data class Meal(
     val portionSize: Int,
     val directions: String,
     val ingredients: List<Ingredient>,
-    val imageSource: String
+    val source: String,
+    val imageSource: String,
 )

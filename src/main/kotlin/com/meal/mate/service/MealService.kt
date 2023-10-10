@@ -17,6 +17,7 @@ class MealService(@Autowired val mealRepository: MealRepository) {
                 mealItem.portionSize,
                 mealItem.directions,
                 mealItem.ingredients,
+                mealItem.source,
                 mealItem.imageSource
             )
         }
@@ -34,6 +35,7 @@ class MealService(@Autowired val mealRepository: MealRepository) {
                 meal.portionSize,
                 meal.directions,
                 meal.ingredients,
+                meal.source,
                 meal.imageSource
             )
         )
@@ -43,6 +45,11 @@ class MealService(@Autowired val mealRepository: MealRepository) {
     fun updateMeal(meal: Meal): Meal {
         mealRepository.findById(meal.id).ifPresent {
             it.name = meal.name
+            it.portionSize = meal.portionSize
+            it.directions = meal.directions
+            it.ingredients = meal.ingredients
+            it.source = meal.source
+            it.imageSource = meal.imageSource
             mealRepository.save(it)
         }
         return meal

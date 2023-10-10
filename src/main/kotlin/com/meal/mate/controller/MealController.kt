@@ -27,7 +27,7 @@ class MealController(val mealService: MealService) {
 
     @GetMapping("/{mealId}")
     fun getMeal(@PathVariable mealId: String): ResponseEntity<Meal> {
-        return mealService.getMeal(mealId)?.let { meal -> ResponseEntity.ok(meal) } ?: ResponseEntity.notFound().build()
+        return mealService.getMeal(mealId)?.let { meal -> ResponseEntity.ok(meal) } ?: throw NoSuchElementException("No Meal with Id $mealId found.")
     }
 
     @PutMapping("/{mealId}")
