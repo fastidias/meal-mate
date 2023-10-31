@@ -1,0 +1,50 @@
+{
+    "id": "2f81508a-69e9-445f-ac82-40418c7bc42f",
+    "name": "Feuriges Nudelgericht",
+    "portionSize": 4,
+    "ingredients": [
+        {
+            "name": "Nudeln",
+            "quantity": "500",
+            "unit": "g"
+        },
+        {
+            "name": "Erbsen",
+            "quantity": "1",
+            "unit": "Dose/n"
+        },
+        {
+            "name": "Sahne",
+            "quantity": "400",
+            "unit": "ml"
+        },
+        {
+            "name": "Milch",
+            "quantity": "1",
+            "unit": "Becher"
+        },
+        {
+            "name": "Wurst",
+            "quantity": "1",
+            "unit": "Becher"
+        },
+        {
+            "name": "Paprikapulver",
+            "quantity": "1",
+            "unit": "Becher"
+        },
+        {
+            "name": "Pfeffer",
+            "quantity": "1",
+            "unit": "Becher"
+        },
+        {
+            "name": "Salz",
+            "quantity": "1",
+            "unit": "Becher"
+        }
+    ],
+    "directions": "\n    Die Nudeln 8-10 min. in kochendes Salzwasser geben. Danach die Nudeln abgießen. Die Milch und Sahne aufkochen lassen und danach reduzieren (insgesamt ca. 10 min.) Gewürfelte Ringwurst, Erbsen und Nudeln zu der Milch und Sahne geben. Jetzt die o. g. Gewürze dazugeben.\r\nWer es richtig scharf liebt, kann auch noch andere Gewürze (z. B. Cayennepfeffer, Curry, etc.) dazugeben.\n",
+    "source": "https://www.chefkoch.de/rezepte/168021072969366/Feuriges-Nudelgericht.html?zufall=on",
+    "imageSource": "https://img.chefkoch-cdn.de/rezepte/168021072969366/bilder/989200/crop-360x240/feuriges-nudelgericht.jpg"
+}
