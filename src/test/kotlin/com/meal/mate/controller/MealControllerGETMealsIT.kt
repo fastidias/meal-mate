@@ -89,14 +89,12 @@ class MealControllerGETMealsIT : MealIntegrationTest() {
                 // then
                 status { isInternalServerError() }
                 content {
+                contentType(MediaType.APPLICATION_JSON)
                     contentType(MediaType.APPLICATION_JSON)
-                    content {
-                        contentType(MediaType.APPLICATION_JSON)
-                        jsonPath("$.statusCode", IsEqual(500))
-                        jsonPath("$.statusMessage", IsEqual("Internal Server Error"))
-                        jsonPath("$.message", IsEqual("An unknown exception occurred"))
-                        jsonPath("$.timestamp", IsNot(emptyString()))
-                    }
+                    jsonPath("$.statusCode", IsEqual(500))
+                    jsonPath("$.statusMessage", IsEqual("Internal Server Error"))
+                    jsonPath("$.message", IsEqual("An unknown exception occurred"))
+                    jsonPath("$.timestamp", IsNot(emptyString()))
                 }
             }
 
