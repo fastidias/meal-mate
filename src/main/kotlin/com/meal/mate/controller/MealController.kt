@@ -2,19 +2,11 @@ package com.meal.mate.controller
 
 import com.meal.mate.PATH_MEALS
 import com.meal.mate.model.Meal
+import com.meal.mate.model.MealData
 import com.meal.mate.service.MealService
-import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.CrossOrigin
-import org.springframework.web.bind.annotation.DeleteMapping
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import java.net.URI
 
 @RestController
@@ -28,9 +20,9 @@ class MealController(val mealService: MealService) {
     }
 
     @PostMapping
-    fun createMeal(@Valid @RequestBody meal: Meal): ResponseEntity<Unit> {
-        return mealService.createMeal(meal).let { createdMeal ->
-            ResponseEntity.created(URI("${PATH_MEALS}/${createdMeal.id}")).build()
+    fun createMeal(@RequestBody mealData: MealData): ResponseEntity<Unit> {
+        return mealService.createMeal(mealData).let { createdMeal ->
+            ResponseEntity.created(URI("${PATH_MEALS}/${createdMeal.meta.id}")).build()
         }
     }
 
@@ -41,7 +33,7 @@ class MealController(val mealService: MealService) {
 
     @PutMapping("/{mealId}")
     fun updateMeal(@PathVariable mealId: String, @RequestBody meal: Meal): ResponseEntity<Unit> {
-        if (meal.id != mealId)
+        if (meal.meta.id != mealId)
             return ResponseEntity.unprocessableEntity().build()
 
         mealService.updateMeal(meal)

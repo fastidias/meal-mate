@@ -13,7 +13,7 @@ class MealControllerDELETEMealIT : MealIntegrationTest() {
 
     @Test
     fun givenMealObject_whenCallRestDeleteMeal_thenReturnStatusNoContent() {
-        val mealJson = TestUtils.loadResource("/feuriges_nudelgericht.json")
+        val mealJson = TestUtils.loadResource("/feuriges_nudelgericht_data.json")
 
         mockMvc.post("/meals") {
             contentType = MediaType.APPLICATION_JSON

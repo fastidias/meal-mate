@@ -1,10 +1,13 @@
 package com.meal.mate.service
 
 import com.meal.mate.model.Meal
+import com.meal.mate.model.MealData
+import com.meal.mate.model.MealMeta
 import com.meal.mate.repo.MealDBO
 import com.meal.mate.repo.MealRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class MealService(@Autowired val mealRepository: MealRepository) {
@@ -12,44 +15,46 @@ class MealService(@Autowired val mealRepository: MealRepository) {
         val mealItems = mealRepository.findAll()
         return mealItems.map { mealItem ->
             Meal(
-                mealItem.id,
-                mealItem.name,
-                mealItem.portionSize,
-                mealItem.directions,
-                mealItem.ingredients,
-                mealItem.source,
-                mealItem.imageSource
+                MealData(mealItem.name,
+                    mealItem.portionSize,
+                    mealItem.directions,
+                    mealItem.ingredients,
+                    mealItem.source,
+                    mealItem.imageSource),
+                MealMeta(mealItem.id),
             )
         }
     }
 
     fun getMeal(id: String): Meal? {
-        return getMeals().find { it.id == id }
+        return getMeals().find { it.meta.id == id }
     }
 
-    fun createMeal(meal: Meal): Meal {
+    fun createMeal(mealData: MealData): Meal {
+        val meal = Meal(mealData,MealMeta(UUID.randomUUID().toString()))
         mealRepository.save(
             MealDBO(
-                meal.id,
-                meal.name,
-                meal.portionSize,
-                meal.directions,
-                meal.ingredients,
-                meal.source,
-                meal.imageSource
+                meal.meta.id,
+                meal.data.name,
+                meal.data.portionSize,
+                meal.data.directions,
+                meal.data.ingredients,
+                meal.data.source,
+                meal.data.imageSource
             )
         )
+
         return meal
     }
 
     fun updateMeal(meal: Meal): Meal {
-        mealRepository.findById(meal.id).ifPresent {
-            it.name = meal.name
-            it.portionSize = meal.portionSize
-            it.directions = meal.directions
-            it.ingredients = meal.ingredients
-            it.source = meal.source
-            it.imageSource = meal.imageSource
+        mealRepository.findById(meal.meta.id).ifPresent {
+            it.name = meal.data.name
+            it.portionSize = meal.data.portionSize
+            it.directions = meal.data.directions
+            it.ingredients = meal.data.ingredients
+            it.source = meal.data.source
+            it.imageSource = meal.data.imageSource
             mealRepository.save(it)
         }
         return meal

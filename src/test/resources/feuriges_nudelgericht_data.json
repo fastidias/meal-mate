@@ -1,5 +1,4 @@
 {
-    "data": {
         "name": "Feuriges Nudelgericht",
         "portionSize": 4,
         "ingredients": [
@@ -47,8 +46,4 @@
         "directions": "\n    Die Nudeln 8-10 min. in kochendes Salzwasser geben. Danach die Nudeln abgießen. Die Milch und Sahne aufkochen lassen und danach reduzieren (insgesamt ca. 10 min.) Gewürfelte Ringwurst, Erbsen und Nudeln zu der Milch und Sahne geben. Jetzt die o. g. Gewürze dazugeben.\r\nWer es richtig scharf liebt, kann auch noch andere Gewürze (z. B. Cayennepfeffer, Curry, etc.) dazugeben.\n",
         "source": "https://www.chefkoch.de/rezepte/168021072969366/Feuriges-Nudelgericht.html?zufall=on",
         "imageSource": "https://img.chefkoch-cdn.de/rezepte/168021072969366/bilder/989200/crop-360x240/feuriges-nudelgericht.jpg"
-    },
-    "meta": {
-        "id": "2f81508a-69e9-445f-ac82-40418c7bc42f"
-    }
 }

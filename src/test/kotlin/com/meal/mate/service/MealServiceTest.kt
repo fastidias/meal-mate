@@ -4,6 +4,8 @@ import com.meal.mate.*
 import com.meal.mate.TestUtils.Companion.defaultMealDBO1
 import com.meal.mate.TestUtils.Companion.defaultMealDBOList
 import com.meal.mate.model.Meal
+import com.meal.mate.model.MealData
+import com.meal.mate.model.MealMeta
 import com.meal.mate.repo.MealRepository
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
@@ -37,8 +39,8 @@ class MealServiceTest {
         verify(mealRepository, times(1)).findAll()
         assertFalse(meals.isEmpty())
         assertEquals(2, meals.size)
-        assertEquals(MEAL_NAME_1, meals[0].name)
-        assertEquals(MEAL_NAME_2, meals[1].name)
+        assertEquals(MEAL_NAME_1, meals[0].data.name)
+        assertEquals(MEAL_NAME_2, meals[1].data.name)
     }
 
     @Test
@@ -62,7 +64,7 @@ class MealServiceTest {
         given(mealRepository.save(any())).willReturn(mealItem)
 
         val newMealName = MEAL_NAME_1 + "a"
-        val meal = Meal(MEAL_ID_1, newMealName, MEAL_PORTIONSIZE_1, MEAL_DIRECTIONS_1, emptyList(), MEAL_SOURCE_1, MEAL_IMAGE_URL_1)
+        val meal = Meal(MealData(newMealName, MEAL_PORTIONSIZE_1, MEAL_DIRECTIONS_1, emptyList(), MEAL_SOURCE_1, MEAL_IMAGE_URL_1), MealMeta(MEAL_ID_1))
 
         // when
         val updatedMeal = mealService.updateMeal(meal)
@@ -78,7 +80,7 @@ class MealServiceTest {
         // given
         given(mealRepository.findById(MEAL_ID_1)).willReturn(Optional.empty())
 
-        val meal = Meal(MEAL_ID_1, MEAL_NAME_1 + "a", MEAL_PORTIONSIZE_1, MEAL_DIRECTIONS_1, emptyList(), MEAL_SOURCE_1, MEAL_IMAGE_URL_1)
+        val meal = Meal(MealData(MEAL_NAME_1 + "a", MEAL_PORTIONSIZE_1, MEAL_DIRECTIONS_1, emptyList(), MEAL_SOURCE_1, MEAL_IMAGE_URL_1), MealMeta(MEAL_ID_1))
 
         // when
         val notUpdatedMeal = mealService.updateMeal(meal)
