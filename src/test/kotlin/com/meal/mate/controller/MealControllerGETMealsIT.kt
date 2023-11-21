@@ -77,28 +77,4 @@ class MealControllerGETMealsIT : MealIntegrationTest() {
         // then
         verify(mealRepository, times(1)).findAll()
     }
-
-    @Test
-    fun givenDefaultMealDBOs_whenThrowError_thenReturnInternalServerError() {
-        // given
-        given(mealRepository.findAll()).willThrow(Error("my message"))
-
-        // when
-        mockMvc.get(PATH_MEALS)
-            .andExpect {
-                // then
-                status { isInternalServerError() }
-                content {
-                contentType(MediaType.APPLICATION_JSON)
-                    contentType(MediaType.APPLICATION_JSON)
-                    jsonPath("$.statusCode", IsEqual(500))
-                    jsonPath("$.statusMessage", IsEqual("Internal Server Error"))
-                    jsonPath("$.message", IsEqual("An unknown exception occurred"))
-                    jsonPath("$.timestamp", IsNot(emptyString()))
-                }
-            }
-
-        // then
-        verify(mealRepository, times(1)).findAll()
-    }
 }

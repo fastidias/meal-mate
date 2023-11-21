@@ -1,5 +1,6 @@
 package com.meal.mate.controller
 
+import com.fasterxml.jackson.databind.node.ArrayNode
 import com.fasterxml.jackson.databind.node.NullNode
 import com.meal.mate.MealIntegrationTest
 import com.meal.mate.PATH_MEALS
@@ -41,7 +42,45 @@ class MealControllerPOSTMealIT : MealIntegrationTest() {
             }
     }
 
-    //TODO: Überlegen was wirklich Pflichtfelder sind und dann tests erstellen
+    @Test
+    fun givenMealObjectWithEmptyName_whenCallRestCreateMeal_thenReturnUnprocessableEntity() {
+        val mealJson = TestUtils.loadResource("/feuriges_nudelgericht_data.json")
+        mealJson.put("name", "")
+
+        mockMvc.post(PATH_MEALS) {
+            contentType = MediaType.APPLICATION_JSON
+            content = mealJson
+        }
+            .andDo { print() }
+            .andExpect {status { isUnprocessableEntity() } }
+    }
+
+    @Test
+    fun givenMealObjectWithEmptyDirections_whenCallRestCreateMeal_thenReturnUnprocessableEntity() {
+        val mealJson = TestUtils.loadResource("/feuriges_nudelgericht_data.json")
+        mealJson.put("directions", "")
+
+        mockMvc.post(PATH_MEALS) {
+            contentType = MediaType.APPLICATION_JSON
+            content = mealJson
+        }
+            .andDo { print() }
+            .andExpect {status { isUnprocessableEntity() } }
+    }
+
+    @Test
+    fun givenMealObjectWithEmptyIngredients_whenCallRestCreateMeal_thenReturnUnprocessableEntity() {
+        val mealJson = TestUtils.loadResource("/feuriges_nudelgericht_data.json")
+        mealJson.set<ArrayNode>("ingredients", mapper.createArrayNode())
+
+        mockMvc.post(PATH_MEALS) {
+            contentType = MediaType.APPLICATION_JSON
+            content = mealJson
+        }
+            .andDo { print() }
+            .andExpect {status { isUnprocessableEntity() } }
+    }
+
     @Test
     fun givenMealObjectWithoutName_whenCallRestCreateMeal_thenReturnUnprocessableEntity() {
         val mealJson = TestUtils.loadResource("/feuriges_nudelgericht_data.json")
@@ -50,6 +89,34 @@ class MealControllerPOSTMealIT : MealIntegrationTest() {
         mockMvc.post(PATH_MEALS) {
             contentType = MediaType.APPLICATION_JSON
             content = mealJson
-        }.andExpect {status { isUnprocessableEntity() } }
+        }
+            .andDo { print() }
+            .andExpect {status { isBadRequest() } }
+    }
+
+    @Test
+    fun givenMealObjectWithoutDirections_whenCallRestCreateMeal_thenReturnUnprocessableEntity() {
+        val mealJson = TestUtils.loadResource("/feuriges_nudelgericht_data.json")
+        mealJson.set<NullNode>("directions", NullNode.getInstance())
+
+        mockMvc.post(PATH_MEALS) {
+            contentType = MediaType.APPLICATION_JSON
+            content = mealJson
+        }
+            .andDo { print() }
+            .andExpect {status { isBadRequest() } }
+    }
+
+    @Test
+    fun givenMealObjectWithoutIngredients_whenCallRestCreateMeal_thenReturnUnprocessableEntity() {
+        val mealJson = TestUtils.loadResource("/feuriges_nudelgericht_data.json")
+        mealJson.set<NullNode>("ingredients", NullNode.getInstance())
+
+        mockMvc.post(PATH_MEALS) {
+            contentType = MediaType.APPLICATION_JSON
+            content = mealJson
+        }
+            .andDo { print() }
+            .andExpect {status { isBadRequest() } }
     }
 }

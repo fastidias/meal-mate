@@ -4,6 +4,7 @@ import com.meal.mate.PATH_MEALS
 import com.meal.mate.model.Meal
 import com.meal.mate.model.MealData
 import com.meal.mate.service.MealService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -20,7 +21,7 @@ class MealController(val mealService: MealService) {
     }
 
     @PostMapping
-    fun createMeal(@RequestBody mealData: MealData): ResponseEntity<Unit> {
+    fun createMeal(@Valid @RequestBody mealData: MealData): ResponseEntity<Unit> {
         return mealService.createMeal(mealData).let { createdMeal ->
             ResponseEntity.created(URI("${PATH_MEALS}/${createdMeal.meta.id}")).build()
         }

@@ -8,9 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Document
 class MealDBO(
     @Id val id: String,
     var name: String,
-    var portionSize: Int,
+    var portionSize: Int?,
     var directions: String,
     var ingredients: List<Ingredient>,
-    var source: String,
-    var imageSource: String
+    var source: String?,
+    var imageSource: String?
 )
