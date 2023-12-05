@@ -1,19 +1,29 @@
 package com.meal.mate.service
 
-import com.meal.mate.*
+import com.meal.mate.MEAL_DIRECTIONS_1
+import com.meal.mate.MEAL_ID_1
+import com.meal.mate.MEAL_IMAGE_URL_1
+import com.meal.mate.MEAL_NAME_1
+import com.meal.mate.MEAL_NAME_2
+import com.meal.mate.MEAL_PORTIONSIZE_1
+import com.meal.mate.MEAL_SOURCE_1
 import com.meal.mate.TestUtils.Companion.defaultMealDBO1
 import com.meal.mate.TestUtils.Companion.defaultMealDBOList
 import com.meal.mate.model.Meal
 import com.meal.mate.model.MealData
 import com.meal.mate.model.MealMeta
+import com.meal.mate.repo.MealDBO
 import com.meal.mate.repo.MealRepository
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.ArgumentMatchers.any
 import org.mockito.BDDMockito.given
 import org.mockito.InjectMocks
 import org.mockito.Mock
+import org.mockito.Mockito.never
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import org.mockito.junit.jupiter.MockitoExtension
@@ -88,5 +98,34 @@ class MealServiceTest {
         // then
         assertEquals(notUpdatedMeal, meal)
         verify(mealRepository, times(0)).save(any())
+    }
+
+    @Test
+    fun givenId_whenCallDelete_thenDeleteInRepository() {
+        // given
+        val id = "a7a08be2-cb67-44d3-82bd-b6c55839c6b9"
+
+        // when
+        val mealDbo = MealDBO(id, "name",1,"directions",emptyList(),"source","imageSource")
+        given(mealRepository.findById(any())).willReturn(Optional.of(mealDbo))
+        mealService.deleteMeal(id)
+
+        // then
+        verify(mealRepository, times(1)).findById(id)
+        verify(mealRepository, times(1)).delete(mealDbo)
+    }
+
+    @Test
+    fun givenNonExistingId_whenCallDelete_thenDontDeleteAnything() {
+        // given
+        val id = "a7a08be2-cb67-44d3-82bd-b6c55839c6b9"
+
+        // when
+        given(mealRepository.findById(any())).willReturn(Optional.empty())
+        mealService.deleteMeal(id)
+
+        // then
+        verify(mealRepository, times(1)).findById(id)
+        verify(mealRepository, never()).delete(any())
     }
 }
